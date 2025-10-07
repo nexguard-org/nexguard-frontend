@@ -61,6 +61,12 @@
     background-color: var(--secondary-dark);
 }
 
+.clientAnchor {
+    margin-top: 10px;
+    font-size: 0.75em;
+    color: var(--secondary-dark);
+}
+
 @media (max-width: 768px) {
 
     .title {

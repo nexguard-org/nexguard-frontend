@@ -1,5 +1,6 @@
 import { SelectOptions } from "@/components/select";
 import style from "./page.module.css";
+import formStyle from "@/lib/css/form.module.css";
 import MainForm from "@/components/main/form";
 
 async function getSourceSelectProps() {
@@ -13,7 +14,7 @@ export default async function Main() {
     return <>
         <div className={style.wrapper}>
             <h1>NexGuard</h1>
-            <MainForm className={style.formContainer} sourceSelectOptions={await getSourceSelectProps()} />
+            <MainForm className={formStyle.formContainer} sourceSelectOptions={await getSourceSelectProps()} />
         </div>
     </>;
 }

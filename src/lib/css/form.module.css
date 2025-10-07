@@ -1,0 +1,36 @@
+
+.formContainer > ul {
+    color: var(--secondary);
+}
+
+.formContainer > form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    gap: 10px;
+}
+
+.formContainer > form > input, .formContainer > form > button {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    height: 2em;
+    font-size: 1em;
+}
+
+.formContainer > form > select > option {
+    background-color: var(--primary);
+}
+
+.formContainer > form > *:focus {
+    outline: none;
+}
+
+.formContainer > form > textarea {
+    height: 100px;
+}
+
+.formContainer > form > button:hover {
+    cursor: pointer;
+}

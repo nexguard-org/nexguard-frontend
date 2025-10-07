@@ -14,6 +14,7 @@ export default function Home() {
                 </h1>
                 <p className={styles.desc}>{desc}</p>
                 <Link href="/main" className={styles.cyanButton}>Começar</Link>
+                <Link href="/client" className={styles.clientAnchor}>Já é parceiro nosso?</Link>
             </div>
             <div className={styles.wrapperRight}>
                 <Lock3d />

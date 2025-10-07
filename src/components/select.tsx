@@ -1,7 +1,6 @@
 import React from "react";
 
-export type SelectOptions = 
-    {values: {[value: string]: string}, selected: string};
+export type SelectOptions = {values: {[value: string]: string}, selected: string};
 
 export interface SelectProps extends React.HTMLProps<HTMLSelectElement> {
     options: SelectOptions|null
