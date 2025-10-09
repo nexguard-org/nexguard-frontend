@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Select, { SelectOptions } from "../select";
 import validate, { ValidateResponse } from "@/lib/main/validate";
+import commonStyle from "@/lib/css/common.module.css";
 
 function getAddressInputType(option: string) {
     switch(option) {
@@ -30,12 +31,12 @@ export default function MainForm({sourceSelectOptions, ...props}: MainFormProps)
         setValidateResponse(await validate(new FormData(ev.currentTarget)));
     };
     return <div {...props}>
-        <form onSubmit={handleValidate}>
-            <Select options={sourceSelectOptions} name="sourceId" />
-            <Select options={typeSelectOptions} onChange={s => setType(s.currentTarget.value)} name="type" />
-            <input type={getAddressInputType(type)} name="source" placeholder={typeSelectOptions.values[type]} required />
-            <textarea name="content" placeholder="Mensagem" required></textarea>
-            <button>Enviar</button>
+        <form onSubmit={handleValidate} className={commonStyle.basicForm}>
+            <Select className={commonStyle.basicElement} options={sourceSelectOptions} name="sourceId" />
+            <Select className={commonStyle.basicElement} options={typeSelectOptions} onChange={s => setType(s.currentTarget.value)} name="type" />
+            <input className={commonStyle.basicElement} type={getAddressInputType(type)} name="source" placeholder={typeSelectOptions.values[type]} required />
+            <textarea className={commonStyle.basicElement} name="content" placeholder="Mensagem" required></textarea>
+            <button className={commonStyle.basicElement}>Enviar</button>
         </form>
         <ul style={{visibility: validateResponse ? "unset" : "hidden"}}>
             <li>Fonte: {validateResponse?.isSourceValid ? "Válida" : "Inválida"}</li>

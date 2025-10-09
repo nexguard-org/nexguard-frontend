@@ -1,7 +1,6 @@
 import { SelectOptions } from "@/components/select";
 import style from "./page.module.css";
-import formStyle from "@/lib/css/form.module.css";
-import MainForm from "@/components/main/form";
+import MainForm from "@/components/main/MainForm";
 
 async function getSourceSelectProps() {
     const values: {[key: string]: string} = await (await fetch(`http://${process.env.API_ADDRESS}/sources/list` as string, {
@@ -14,7 +13,7 @@ export default async function Main() {
     return <>
         <div className={style.wrapper}>
             <h1>NexGuard</h1>
-            <MainForm className={formStyle.formContainer} sourceSelectOptions={await getSourceSelectProps()} />
+            <MainForm sourceSelectOptions={await getSourceSelectProps()} />
         </div>
     </>;
 }

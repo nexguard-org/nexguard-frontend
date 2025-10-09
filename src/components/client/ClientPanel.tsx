@@ -4,6 +4,8 @@ import type { Source, ValidAddress, ValidAddressType } from "@/lib/client/source
 import { Dispatch, SetStateAction, useState } from "react";
 import Select from "../select";
 import apply from "@/lib/client/apply";
+import commonStyle from "@/lib/css/common.module.css";
+import clientPanelStyle from "@/lib/css/client/clientpanel.module.css";
 
 interface ClientPanelProps extends React.HTMLProps<HTMLDivElement> {
     source: Source|null,
@@ -28,18 +30,21 @@ function ValidAddressesPanel({validAddresses, setValidAddresses}: ValidAddresses
         setValidAddresses([...validAddresses, {address: "", type: "EMAIL"}]);
     };
     return <div>
-        {validAddresses.map((validAddress, i) => <div key={i}>
-            <input 
-                type="text" name={`address${i}`} 
-                defaultValue={validAddress.address} placeholder="Endereço" 
-            />
-            <Select 
-                options={{values: validAddressesTypeOptions, selected: validAddress.type}} 
-                name={`type${i}`}
-            />
-            <input type="checkbox" name={`delete${i}`} />
-        </div>)}
-        <button onClick={add} type="button">+</button>
+        <div className={clientPanelStyle.addressList}>
+            {validAddresses.map((validAddress, i) => <div key={i}>
+                <input 
+                    type="text" className={commonStyle.basicElement} name={`address${i}`} 
+                    defaultValue={validAddress.address} placeholder="Endereço" 
+                />
+                <Select 
+                    options={{values: validAddressesTypeOptions, selected: validAddress.type}} 
+                    className={commonStyle.basicElement} name={`type${i}`}
+                />
+                <p>Deletar?</p>
+                <input type="checkbox" name={`delete${i}`} />
+            </div>)}
+        </div>
+        <button className={commonStyle.basicElement} onClick={add} type="button">+</button>
     </div>;
 }
 
@@ -56,13 +61,13 @@ export default function ClientPanel({source, setSource, pass, setPass, ...props}
         }
     };
     return <div {...props}>
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Nome" defaultValue={source!.name} />
-            <input type="password" name="pass" defaultValue={pass ?? ""} placeholder="Senha" />
+        <form onSubmit={handleSubmit} className={commonStyle.basicForm}>
+            <input type="text" className={commonStyle.basicElement} name="name" placeholder="Nome" defaultValue={source!.name} />
+            <input type="password" className={commonStyle.basicElement} name="pass" defaultValue={pass ?? ""} placeholder="Senha" />
             <ValidAddressesPanel 
                 validAddresses={fakeValidAddresses} setValidAddresses={setFakeValidAddresses} 
             />
-            <button>Aplicar</button>
+            <button className={commonStyle.basicElement}>Aplicar</button>
         </form>
     </div>;
 }

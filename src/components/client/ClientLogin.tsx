@@ -3,6 +3,7 @@
 import login from "@/lib/client/login";
 import type { Source } from "@/lib/client/source";
 import { Dispatch, SetStateAction } from "react";
+import commonStyle from "@/lib/css/common.module.css";
 
 interface ClientLoginProps extends React.HTMLProps<HTMLDivElement> {
     source: Source|null
@@ -21,10 +22,11 @@ export default function ClientLogin({source, setSource, setPass, ...props}: Clie
     };
     return <>{source ? props.children :
         <div {...props}>
-            <form onSubmit={handleSubmit} >
-                <input type="text" name="id" placeholder="ID" required />
-                <input type="password" name="pass" placeholder="SENHA" />
-                <button>LOGIN</button>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit} className={commonStyle.basicForm} >
+                <input className={commonStyle.basicElement} type="text" name="id" placeholder="ID" required />
+                <input className={commonStyle.basicElement} type="password" name="pass" placeholder="SENHA" />
+                <button className={commonStyle.basicElement}>LOGIN</button>
             </form>
         </div>
     }</>;
