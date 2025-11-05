@@ -7,9 +7,9 @@ import commonStyle from "@/lib/css/common.module.css";
 
 function getAddressInputType(option: string) {
     switch(option) {
-        case "email":
+        case "EMAIL":
             return "email";
-        case "number":
+        case "PHONE_NUMBER":
             return "tel";
         default:
             return "text";
@@ -22,7 +22,7 @@ export interface MainFormProps extends React.HTMLProps<HTMLDivElement> {
 
 export default function MainForm({sourceSelectOptions, ...props}: MainFormProps) {
     const typeSelectOptions: SelectOptions = {
-        values: {"email": "Email", "number": "Número de Celular"}, selected: "email"
+        values: {"EMAIL": "Email", "PHONE_NUMBER": "Número de Celular"}, selected: "EMAIL"
     };
     const [type, setType] = useState(typeSelectOptions.selected);
     const [validateResponse, setValidateResponse] = useState<ValidateResponse|null>(null);
