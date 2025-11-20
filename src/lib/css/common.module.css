@@ -19,6 +19,12 @@
     gap: 10px;
 }
 
+@media screen and (max-width: 600px) {
+    .basicForm {
+        width: 300px;
+    }
+}
+
 button.basicElement:hover {
     cursor: pointer;
 }
@@ -33,4 +39,16 @@ button.basicElement:hover {
 
 .basicElement > option {
     background-color: var(--primary);
+}
+
+.padlock {
+    vertical-align: sub;
+}
+
+.padlock > path:nth-child(1) {
+    fill: var(--secondary-dark) !important;
+}
+
+.padlock > path:nth-child(2) {
+    fill: var(--secondary) !important;
 }
