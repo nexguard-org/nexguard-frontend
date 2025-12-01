@@ -1,0 +1,54 @@
+
+.basicElement {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    height: 2em;
+    font-size: 1em;
+}
+
+.basicElement:focus {
+    outline: none;
+}
+
+.basicForm {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .basicForm {
+        width: 300px;
+    }
+}
+
+button.basicElement:hover {
+    cursor: pointer;
+}
+
+.formContainer > ul {
+    color: var(--secondary);
+}
+
+.basicForm > textarea {
+    height: 100px;
+}
+
+.basicElement > option {
+    background-color: var(--primary);
+}
+
+.padlock {
+    vertical-align: sub;
+}
+
+.padlock > path:nth-child(1) {
+    fill: var(--secondary-dark) !important;
+}
+
+.padlock > path:nth-child(2) {
+    fill: var(--secondary) !important;
+}
